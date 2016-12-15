@@ -1,24 +1,22 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+docker上のminioを `paperclip` と `carrierwave` から扱うサンプル用に作りました。
 
-Things you may want to cover:
+_docker-compose_ で立ち上げて _rails console_ から使用してください。
 
-* Ruby version
+* 環境変数は _docker-compose.env_ を編集してください
+* minioを起動後、以下のバケットを作成してください
+    * minio-sample
+    * minio-sample-carrierwave
 
-* System dependencies
+```
+$ docker-comopse run rails rails c
 
-* Configuration
+# carrierwave
 
-* Database creation
+User.create(name: 'hoghoge', avatar: File.open(...))
 
-* Database initialization
+# paperclip
 
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+User.create(name: 'fugafuga', icon: File.new([PATH...], "r"))
+```
