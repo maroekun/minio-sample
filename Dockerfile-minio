@@ -1,0 +1,7 @@
+FROM minio/minio:latest
+
+WORKDIR /go/src/app
+
+RUN mkdir -p /minio/minio-sample
+
+EXPOSE 9000
