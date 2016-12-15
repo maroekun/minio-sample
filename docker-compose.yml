@@ -20,6 +20,8 @@ services:
     ports:
       - '9000:9000'
     command: [server, /minio]
+    volumes_from:
+    - datastore
     env_file:
     - ./docker-compose.env
   rails:
